@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gbenga Agunloye's 60th Birthday Countdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      text-align: center;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 20px;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .time-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      min-width: 80px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #e67e22;
+    }
+    .label {
+      font-size: 1rem;
+      color: #777;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Countdown to Gbenga Agunloye's 60th Birthday 🎉</h1>
+  <div class="countdown">
+    <div class="time-box">
+      <span id="days">0</span>
+      <div class="label">Days</div>
+    </div>
+    <div class="time-box">
+      <span id="hours">0</span>
+      <div class="label">Hours</div>
+    </div>
+    <div class="time-box">
+      <span id="minutes">0</span>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="time-box">
+      <span id="seconds">0</span>
+      <div class="label">Seconds</div>
+    </div>
+  </div>
+  <div class="footer">Mark your calendar: September 6, 2025 🥳</div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("September 6, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      if (difference < 0) {
+        document.querySelector(".countdown").innerHTML = "<h2>🎂 Happy 60th Birthday, Gbenga Agunloye! 🎉</h2>";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
